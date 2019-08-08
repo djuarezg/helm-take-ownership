@@ -120,7 +120,7 @@ func main() {
 				}
 			} else {
 				log.Print("Installing Helm Chart...")
-				cfgmaps := driver.NewConfigMaps(clientset.Core().ConfigMaps(environment.DefaultTillerNamespace))
+				cfgmaps := driver.NewConfigMaps(clientset.Core().ConfigMaps(kube.Namespace))
 				cfgmaps.Log = helmPrinter
 				releases := storage.Init(cfgmaps)
 				releases.Log = helmPrinter
